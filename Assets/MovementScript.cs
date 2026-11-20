@@ -27,4 +27,12 @@ public class MovementScript : MonoBehaviour
 
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            MainGameManager.gameOver();
+        }
+    }
 }

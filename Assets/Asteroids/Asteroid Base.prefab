@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2012861067150719452}
   - component: {fileID: 2443423725377973680}
   - component: {fileID: 5842770990007998245}
-  m_Layer: 0
+  - component: {fileID: 4796247837085264530}
+  m_Layer: 8
   m_Name: Asteroid Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,3 +116,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4796247837085264530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035503344195184723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00011b9d917284845a1656fdf4dbc22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potentialSprites:
+  - {fileID: 21300000, guid: 83f2b666efb230141bc9533cea310566, type: 3}
+  - {fileID: 21300000, guid: 16bef4f48b7e5b246a3532877e163961, type: 3}
+  - {fileID: 21300000, guid: a7f576b29c225dc4fa204f9bb4168d21, type: 3}
+  - {fileID: 21300000, guid: dd76ea55f07814649aa505341c17eeb2, type: 3}
+  - {fileID: 21300000, guid: dea36bbc5946f15429d941574fa5b2c0, type: 3}
+  - {fileID: 21300000, guid: f702c141e9001154291ea096b63a38a3, type: 3}
+  - {fileID: 21300000, guid: 65cfec52643366f46a5eb561bea66d5f, type: 3}
+  - {fileID: 21300000, guid: c8f91936d74f0aa45a50a051c9b67245, type: 3}
+  - {fileID: 21300000, guid: 65de67337f960a549bffc616dd5967e1, type: 3}
+  - {fileID: 21300000, guid: 76af786d1c902cf459a4e502629fbaab, type: 3}
+  - {fileID: 21300000, guid: 65dbf1db254e14f4f94d1315bfb515c0, type: 3}
+  - {fileID: 21300000, guid: 2cabb34ac6fd63047b8625dc192a7050, type: 3}
+  - {fileID: 21300000, guid: 33c73d29510df4e4994e228961fc7e2c, type: 3}
+  - {fileID: 21300000, guid: a38078638b8716342956147514c44496, type: 3}
+  - {fileID: 21300000, guid: c6073eee1dafdcc4ebc6d514062b73e0, type: 3}
+  - {fileID: 21300000, guid: 7fd5e21051f14c84caa4da42cd76339e, type: 3}
+  - {fileID: 21300000, guid: 8011d2e7f21c7cd428db3a61a0da1896, type: 3}
+  - {fileID: 21300000, guid: ae6fbd4343a39334984e431aaa1d0a06, type: 3}
+  - {fileID: 21300000, guid: e568d562486baba4e802f6734bd226ed, type: 3}
+  - {fileID: 21300000, guid: db7b906127f7e4e4a87afb76cd975d57, type: 3}
+  - {fileID: 21300000, guid: b36bdafbcf6274f45be6c4b599c6de0a, type: 3}
+  - {fileID: 21300000, guid: 44ad84df86c064241926d3a0267bcfdb, type: 3}
+  - {fileID: 21300000, guid: 55cad493f0c88674a85dae191def55b8, type: 3}
+  - {fileID: 21300000, guid: 9ec6fd46f25fae44c91c66a9b6bd8fcb, type: 3}
+  - {fileID: 21300000, guid: d9f73467fe961de45a3717a961db708d, type: 3}
+  - {fileID: 21300000, guid: 2292802e8f6d2c64583a3ba3a32925fa, type: 3}
+  - {fileID: 21300000, guid: c18913d7b223a234a953dbbf26d2a757, type: 3}
+  - {fileID: 21300000, guid: 4b15c533e9c1f394c81e10baa2aea95d, type: 3}
