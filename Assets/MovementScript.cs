@@ -39,6 +39,7 @@ public class MovementScript : MonoBehaviour
             {
                 MainGameManager.gameOver();
             }
+            FindFirstObjectByType<SoundManager>().SoundExpload.Play();
         }
     }
 }
