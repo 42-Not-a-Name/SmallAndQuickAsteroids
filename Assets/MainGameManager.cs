@@ -36,6 +36,17 @@ public class MainGameManager : MonoBehaviour
             scoreText.text = score.ToString("F0");
             multy += Time.deltaTime / 25;
         }
+
+        if (InputScreen.activeInHierarchy && Input.GetKey(KeyCode.Return))
+        {
+            setValue();
+            Reset();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && !MainMenu.activeInHierarchy && !ScoreBoards.activeInHierarchy)
+        {
+            Reset();
+        }
     }
 
     public void toinput()

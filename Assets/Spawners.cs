@@ -13,6 +13,7 @@ public class Spawners : MonoBehaviour
 
     public void GameStart()
     {
+        StopAllCoroutines();
         StartCoroutine(cooldownSpawn());
         newwaitTime = waitTime;
     }
