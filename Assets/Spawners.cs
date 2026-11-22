@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Spawners : MonoBehaviour
@@ -12,7 +11,7 @@ public class Spawners : MonoBehaviour
     public float waitTime;
     public float newwaitTime;
 
-    private void Start()
+    public void GameStart()
     {
         StartCoroutine(cooldownSpawn());
         newwaitTime = waitTime;
@@ -20,45 +19,48 @@ public class Spawners : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(MainGameManager.score / (1500 * MainGameManager.multy));
+
     }
 
     public IEnumerator cooldownSpawn()
     {
-        int rand = Random.Range(0, asteroidSpawners.Count);
-        GameObject newast = Instantiate(AsteroidBase, asteroidSpawners[rand].position, asteroidSpawners[rand].rotation);
-        if (asteroidSpawners[rand].position.x != 0)
+        if (MainGameManager.Started)
         {
-            if (asteroidSpawners[rand].position.x > 0)
+            int rand = Random.Range(0, asteroidSpawners.Count);
+            GameObject newast = Instantiate(AsteroidBase, asteroidSpawners[rand].position, asteroidSpawners[rand].rotation);
+            if (asteroidSpawners[rand].position.x != 0)
             {
-                newast.transform.position = new Vector2(newast.transform.position.x, newast.transform.position.y + Random.Range(-asteroidSpawners[rand].localScale.y / 2, asteroidSpawners[rand].localScale.y / 2));
-                newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(-0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy))), 0));
+                if (asteroidSpawners[rand].position.x > 0)
+                {
+                    newast.transform.position = new Vector2(newast.transform.position.x, newast.transform.position.y + Random.Range(-asteroidSpawners[rand].localScale.y / 2, asteroidSpawners[rand].localScale.y / 2));
+                    newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(-0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy))), 0));
+                }
+                else
+                {
+                    newast.transform.position = new Vector2(newast.transform.position.x, newast.transform.position.y + Random.Range(-asteroidSpawners[rand].localScale.y / 2, asteroidSpawners[rand].localScale.y / 2));
+                    newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy))), 0));
+                }
             }
             else
             {
-                newast.transform.position = new Vector2(newast.transform.position.x, newast.transform.position.y + Random.Range(-asteroidSpawners[rand].localScale.y / 2, asteroidSpawners[rand].localScale.y / 2));
-                newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy))), 0));
+                if (asteroidSpawners[rand].position.y > 0)
+                {
+                    newast.transform.position = new Vector2(newast.transform.position.x + Random.Range(-asteroidSpawners[rand].localScale.x / 2, asteroidSpawners[rand].localScale.x / 2), newast.transform.position.y);
+                    newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy)))));
+                }
+                else
+                {
+                    newast.transform.position = new Vector2(newast.transform.position.x + Random.Range(-asteroidSpawners[rand].localScale.x / 2, asteroidSpawners[rand].localScale.x / 2), newast.transform.position.y);
+                    newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy)))));
+                }
             }
-        }
-        else
-        {
-            if (asteroidSpawners[rand].position.y > 0)
+            newast.GetComponent<AstoeroidBase>().made();
+            if (newwaitTime > 0.1)
             {
-                newast.transform.position = new Vector2(newast.transform.position.x + Random.Range(-asteroidSpawners[rand].localScale.x / 2, asteroidSpawners[rand].localScale.x / 2), newast.transform.position.y);
-                newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy)))));
+                newwaitTime = waitTime - (MainGameManager.score / (8000 * MainGameManager.multy));
             }
-            else
-            {
-                newast.transform.position = new Vector2(newast.transform.position.x + Random.Range(-asteroidSpawners[rand].localScale.x / 2, asteroidSpawners[rand].localScale.x / 2), newast.transform.position.y);
-                newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0.025f * (1 + (MainGameManager.score / (5000 * MainGameManager.multy)))));
-            }
+            yield return new WaitForSeconds(newwaitTime);
+            StartCoroutine(cooldownSpawn());
         }
-        newast.GetComponent<AstoeroidBase>().made();
-        if (newwaitTime > 0.1)
-        {
-            newwaitTime = waitTime - (MainGameManager.score / (8000 * MainGameManager.multy));
-        }
-        yield return new WaitForSeconds(newwaitTime);
-        StartCoroutine(cooldownSpawn());
     }
 }
