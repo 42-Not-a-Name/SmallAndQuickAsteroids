@@ -43,7 +43,7 @@ public class MainGameManager : MonoBehaviour
             Reset();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !MainMenu.activeInHierarchy && !ScoreBoards.activeInHierarchy && !InputScreen.activeInHierarchy)
+        if (Input.GetKey(KeyCode.R) && !MainMenu.activeInHierarchy && !ScoreBoards.activeInHierarchy && !InputScreen.activeInHierarchy)
         {
             Reset();
         }
