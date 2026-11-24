@@ -15,7 +15,7 @@ public class AstoeroidBase : MonoBehaviour
 
     public IEnumerator endOff()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(17);
         Debug.Log("Destroy");
         Destroy(this.gameObject);
     }

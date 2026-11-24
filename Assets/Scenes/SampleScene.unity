@@ -3472,7 +3472,7 @@ MonoBehaviour:
   - {fileID: 548571190}
   - {fileID: 1664588820}
   - {fileID: 1733338230}
-  waitTime: 0.5
+  waitTime: 0.89
   newwaitTime: 0
 --- !u!4 &1523586592
 Transform:
