@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using TMPro;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainGameManager : MonoBehaviour
 {
@@ -56,6 +57,9 @@ public class MainGameManager : MonoBehaviour
         ScoreBoards.SetActive(false);
         scoreText.gameObject.SetActive(false);
         InputScreen.SetActive(true);
+
+        inpu.Select();
+        inpu.ActivateInputField();
     }
 
     public void quitin()

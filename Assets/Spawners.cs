@@ -35,11 +35,13 @@ public class Spawners : MonoBehaviour
                 {
                     newast.transform.position = new Vector2(newast.transform.position.x, newast.transform.position.y + Random.Range(-asteroidSpawners[rand].localScale.y / 2, asteroidSpawners[rand].localScale.y / 2));
                     newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(-(0.012f * (Random.Range(1, 1.7f))) * (1 + (MainGameManager.score / (3000 * MainGameManager.multy))), 0));
+                    newast.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200, 200);
                 }
                 else
                 {
                     newast.transform.position = new Vector2(newast.transform.position.x, newast.transform.position.y + Random.Range(-asteroidSpawners[rand].localScale.y / 2, asteroidSpawners[rand].localScale.y / 2));
                     newast.GetComponent<Rigidbody2D>().AddForce(new Vector2((0.012f * (Random.Range(1, 1.7f))) * (1 + (MainGameManager.score / (3000 * MainGameManager.multy))), 0));
+                    newast.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200, 200);
                 }
             }
             else
@@ -48,11 +50,13 @@ public class Spawners : MonoBehaviour
                 {
                     newast.transform.position = new Vector2(newast.transform.position.x + Random.Range(-asteroidSpawners[rand].localScale.x / 2, asteroidSpawners[rand].localScale.x / 2), newast.transform.position.y);
                     newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -(0.012f * (Random.Range(1, 1.7f))) * (1 + (MainGameManager.score / (3000 * MainGameManager.multy)))));
+                    newast.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200, 200);
                 }
                 else
                 {
                     newast.transform.position = new Vector2(newast.transform.position.x + Random.Range(-asteroidSpawners[rand].localScale.x / 2, asteroidSpawners[rand].localScale.x / 2), newast.transform.position.y);
                     newast.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, (0.012f * (Random.Range(1, 1.7f))) * (1 + (MainGameManager.score / (3000 * MainGameManager.multy)))));
+                    newast.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-200, 200);
                 }
             }
             newast.GetComponent<AstoeroidBase>().made();
